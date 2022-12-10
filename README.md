@@ -1,2 +1,5 @@
 # Tic-Tac-Toe
-TOP Full-Stack JavaScript - Project #4
+This project is created for the sole purpose of learning and part of the "The Odin Project" [curriculum](https://theodinproject.com/).
+
+### To Do!
+-
