@@ -2,4 +2,5 @@
 This project is created for the sole purpose of learning and part of the "The Odin Project" [curriculum](https://theodinproject.com/).
 
 ### To Do!
-- Populate Board with X & O
+- Rework my big function into smaller bits
+- Figure out how to check for winner
