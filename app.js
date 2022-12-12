@@ -2,41 +2,63 @@ const squares = document.getElementsByClassName('square')
 
 // Creating board
 const createBoard = {
-     gameBoard : ['', '', '', '', '', '', 
-     '', '', '' ]
+     gameBoard : [
+    '', '', '',
+    '', '', '',
+    '', '', '' ]
 }
+
+let spots = createBoard.gameBoard
 
 // Creating player
 const player = (name, selection) => {
     return { name, selection }
 }
 
-const player1 = player('Ryan', 'X')
-const player2 = player('Joe', 'O')
+const player1 = player('Player1', 'X')
+const player2 = player('Player2', 'O')
 
-let spots = createBoard.gameBoard
-// console.table(spots)
+//Setting the starting player to player1
+let currentPlayer = player1
 
 // Giving each spot on the board the corresponding spot in the array
-const populateHTML = () => {
+const updateHTML = () => {
     for (let i = 0; i < squares.length; i++){
-        squares[i].innerText = spots[i]
+        squares[i] = spots[i]
     }
 }
 
-// const checkForWinner = () => {
-//     if (spots[0] && spots[1] && spots[2] === 'X'){
-//         alert('This combination wins')
-//     } else if 
-// }
+const selectedSquare = (e) => {
+    // console.log(e.target)
+    e.target.innerText = currentPlayer.selection
+    whosTurnIsIt()
+    
+    console.log(spots)
+}
+
+// Deciding who's turn it is
+const whosTurnIsIt = () => {
+    if (currentPlayer === player1) {
+        currentPlayer = player2
+    } else {
+        currentPlayer = player1
+    }
+}
+
+for (let i = 0; i < squares.length; i++){
+    squares[i].addEventListener('click', selectedSquare)
+}
 
 
+
+// PREVIOUS VERSION BELOW
 
 // const gameFlow = () => {
 //     let currentPlayer = player1
 
 //     for (let i = 0; i < squares.length; i++){
 //         squares[i].addEventListener('click', () => {
+
 //             if (spots[i] !== ''){
 //                 return
 //             }
@@ -51,18 +73,8 @@ const populateHTML = () => {
 //                 currentPlayer = player1
 //             }
 
-//             // checkForWinner()
-
 //             // Updating HTML
-//             populateHTML()
+//             updateHTML()
 //         })
 //     }
 // }
-
-// gameFlow()
-
-for (let i = 0; i < squares.length; i++){
-    squares[i].addEventListener('click', () => {
-        console.log('Working')
-    })
-}
