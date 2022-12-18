@@ -22,18 +22,34 @@ const player2 = player('Player2', 'O')
 let currentPlayer = player1
 
 // Giving each spot on the board the corresponding spot in the array
-const updateHTML = () => {
+const linkingArrayAndBoard = () => {
     for (let i = 0; i < squares.length; i++){
-        squares[i] = spots[i]
+        // squares[i].setAttribute('id', i)
+        spots[i] = squares[i].innerText
     }
 }
 
+
 const selectedSquare = (e) => {
-    // console.log(e.target)
-    e.target.innerText = currentPlayer.selection
-    whosTurnIsIt()
     
+    // console.log(e.target)
+    if (e.target.innerText !== ''){
+        return
+    }
+    
+    e.target.innerText = currentPlayer.selection
+    linkingArrayAndBoard()
+    whosTurnIsIt()
+    checkForWinner()
     console.log(spots)
+}
+
+const checkForWinner = () => {
+    if (squares[0].innerText && squares[1].innerText && squares[2].innerText == 'X'){
+        alert('X won')
+    } else {
+        // Do nothing
+    }
 }
 
 // Deciding who's turn it is
