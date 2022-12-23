@@ -1,13 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 
 * {
+    margin: 0;
     font-family: 'Bungee Shade', cursive;
-    background-color: #2ec4b6;
+}
+
+#main {
+    background-color: #d4aa7d;
+    height: 100vh;
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .title {
+    color: #d4aa7d;
+    background-color: #272727;
+    font-size: 1.3rem;
     text-align: center;
-    color: black;
 }
 
 #board {
@@ -21,7 +32,9 @@
 
 .square {
     display: flex;
-    box-shadow: 0 0 0 5px #333333;
+    color: #d4aa7d;
+    background-color: #272727;
+    box-shadow: 0 0 0 5px #b99268;
     justify-content: center;
     align-items: center;
     height: 7.5rem;
@@ -30,5 +43,34 @@
 }
 
 .square:hover {
-    background-color: #92f2e8;
+    background-color: #494949;
+}
+
+.winner {
+    /* background-color: #272727; */
+    /* color: #d4aa7d; */
+    display: flex;
+    /* flex: 3; */
+    flex-direction: wrap;
+    text-align: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.winner h2 {
+    font-size: 1.8rem;
+}
+
+button {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    background-color: #272727;
+    color: #d4aa7d;
+    padding: 10px;
+}
+
+button:hover {
+    cursor: pointer;
 }
