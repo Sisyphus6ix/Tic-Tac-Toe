@@ -32,8 +32,6 @@ const linkingArrayAndBoard = () => {
 }
 
 const selectedSquare = (e) => {
-
-    // console.log(e.target)
     if (e.target.innerText !== ''){
         return
     }
@@ -46,39 +44,44 @@ const selectedSquare = (e) => {
     console.log(spots)
 }
 
-
 const checkForWinner = () => {
 
     if (spots[0] === spots[1] && spots[2]){
-        winnerMessage = `${currentPlayer.name} won`
+        winnerMessage = `${currentPlayer.selection} won`
         winner = true
     } else if (spots[3] === spots[4] && spots[5]){
-        winnerMessage = `${currentPlayer.name} won`
+        winnerMessage = `${currentPlayer.selection} won`
         winner = true
     } else if (spots[6] === spots[7] && spots[8]){
-        winnerMessage = `${currentPlayer.name} won`
+        winnerMessage = `${currentPlayer.selection} won`
         winner = true
     } else if (spots[0] === spots[3] && spots[6]){
-        winnerMessage = `${currentPlayer.name} won`
+        winnerMessage = `${currentPlayer.selection} won`
         winner = true
     } else if (spots[1] === spots[4] && spots[7]){
-        winnerMessage = `${currentPlayer.name} won`
+        winnerMessage = `${currentPlayer.selection} won`
         winner = true
     } else if (spots[2] === spots[5] && spots[8]){
-        winnerMessage = `${currentPlayer.name} won`
+        winnerMessage = `${currentPlayer.selection} won`
         winner = true
     } else if (spots[0] === spots[4] && spots[8]){
-        winnerMessage = `${currentPlayer.name} won`
+        winnerMessage = `${currentPlayer.selection} won`
         winner = true
     } else if (spots[2] === spots[4] && spots[6]){
-        winnerMessage = `${currentPlayer.name} won`
+        winnerMessage = `${currentPlayer.selection} won`
         winner = true
     }
-    return
+
+    if (winner === true){
+        for (let i = 0; i < squares.length; i++ ){
+            squares[i].removeEventListener('click', selectedSquare, true)
+        }
+    }
+
 }
 
-//Restarting the game
 const restartGame = () => {
+    // Creating DOM Elements
     let announcementDiv = document.createElement('div')
     let announcementMessage = document.createElement('h2')
     let restartBtn = document.createElement('button')
@@ -86,8 +89,6 @@ const restartGame = () => {
     restartBtn.setAttribute('type', 'button')
     restartBtn.setAttribute('name', 'restartBtn')
     restartBtn.insertAdjacentText('beforeend', 'Play Again')
-
-
 
     if (winnerMessage !== undefined){
         console.log(winnerMessage)
@@ -97,6 +98,21 @@ const restartGame = () => {
         announcementDiv.appendChild(restartBtn)
         announcementMessage.innerText = winnerMessage
     }
+    
+    // Event listener for restart button
+    // Loops through array and board to set values to empty string
+    restartBtn.addEventListener('click', () => {
+        for (let i = 0; i < squares.length; i++){
+            squares[i].innerText = ''
+            spots[i] = squares[i]
+            squares[i].addEventListener('click', selectedSquare, true)
+        }
+
+        winner = false
+        winnerMessage = undefined
+        currentPlayer = player1
+        main.removeChild(announcementDiv)
+    })
 }
 
 // Deciding who's turn it is
@@ -109,5 +125,5 @@ const whosTurnIsIt = () => {
 }
 
 for (let i = 0; i < squares.length; i++){
-    squares[i].addEventListener('click', selectedSquare)
+    squares[i].addEventListener('click', selectedSquare, true)
 }

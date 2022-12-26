@@ -25,7 +25,7 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    width: 45vw;
+    width: 20rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -37,7 +37,7 @@
     box-shadow: 0 0 0 5px #b99268;
     justify-content: center;
     align-items: center;
-    height: 7.5rem;
+    height: 8rem;
     font-size: 3rem;
     cursor: pointer;
 }
@@ -47,10 +47,7 @@
 }
 
 .winner {
-    /* background-color: #272727; */
-    /* color: #d4aa7d; */
     display: flex;
-    /* flex: 3; */
     flex-direction: wrap;
     text-align: center;
     justify-content: center;
