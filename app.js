@@ -45,29 +45,28 @@ const selectedSquare = (e) => {
 }
 
 const checkForWinner = () => {
-
-    if (spots[0] === spots[1] && spots[2]){
+    if (spots[0] != '' && spots[0] === spots[1] && spots[1] === spots[2]){
         winnerMessage = `${currentPlayer.selection} won`
         winner = true
-    } else if (spots[3] === spots[4] && spots[5]){
+    } else if (spots[3] != '' && spots[3] === spots[4] && spots[4] === spots[5]){
         winnerMessage = `${currentPlayer.selection} won`
         winner = true
-    } else if (spots[6] === spots[7] && spots[8]){
+    } else if (spots[6] != '' && spots[6] === spots[7] && spots[7] === spots[8]){
         winnerMessage = `${currentPlayer.selection} won`
         winner = true
-    } else if (spots[0] === spots[3] && spots[6]){
+    } else if (spots[0] != '' && spots[0] === spots[3] && spots[3] === spots[6]){
         winnerMessage = `${currentPlayer.selection} won`
         winner = true
-    } else if (spots[1] === spots[4] && spots[7]){
+    } else if (spots[1] != '' && spots[1] === spots[4] && spots[4] === spots[7]){
         winnerMessage = `${currentPlayer.selection} won`
         winner = true
-    } else if (spots[2] === spots[5] && spots[8]){
+    } else if (spots[2] != '' && spots[2] === spots[5] && spots[5] === spots[8]){
         winnerMessage = `${currentPlayer.selection} won`
         winner = true
-    } else if (spots[0] === spots[4] && spots[8]){
+    } else if (spots[0] != '' && spots[0] === spots[4] && spots[4] === spots[8]){
         winnerMessage = `${currentPlayer.selection} won`
         winner = true
-    } else if (spots[2] === spots[4] && spots[6]){
+    } else if (spots[2] != '' && spots[2] === spots[4] && spots[4] === spots[6]){
         winnerMessage = `${currentPlayer.selection} won`
         winner = true
     }
